@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => { /* Using document.addEvent
 
     function addTask( ) {
         const taskText = todoInput.value.trim() ; // Trim leading spaces.
-        if( taskText === "" ) return ;
+        if( taskText === "" || tasks.find(task => task.text === taskText) ) return ;
 
         const newTask = {
             id: Date.now() , /* To add unique value for object. */
@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => { /* Using document.addEvent
         renderTask( newTask ) ;
         todoInput.value = "" ; // Clears input.
         // console.log( tasks ) ;
-        // todoInput.blur(); // Removes focus from the input field so suggestions don't clutter.
+        todoInput.blur(); // Removes focus from the input field so suggestions don't clutter.
     }
 
     function renderTask( task ) {
