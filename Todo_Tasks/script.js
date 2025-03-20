@@ -23,6 +23,10 @@ document.addEventListener("DOMContentLoaded", () => { /* Using document.addEvent
             addTask() ;
     } ) ;
 
+    // todoInput.addEventListener( "focus", () => {
+    //     todoInput.setAttribute("autocomplete", "on");  // Only enable suggestions while the user is typing AND "off" on "blur".
+    // } ) ;
+
     function addTask( ) {
         const taskText = todoInput.value.trim() ; // Trim leading spaces.
         if( taskText === "" ) return ;
@@ -38,6 +42,7 @@ document.addEventListener("DOMContentLoaded", () => { /* Using document.addEvent
         renderTask( newTask ) ;
         todoInput.value = "" ; // Clears input.
         // console.log( tasks ) ;
+        // todoInput.blur(); // Removes focus from the input field so suggestions don't clutter.
     }
 
     function renderTask( task ) {
@@ -60,8 +65,21 @@ document.addEventListener("DOMContentLoaded", () => { /* Using document.addEvent
         li.querySelector("button").addEventListener("click", (e) => {
             e.stopPropagation() ; // Prevent toggle from firing AS ELSE "toggle" event() could also occur.
             tasks = tasks.filter( (t) => t.id !== task.id ) ; // Only store tasks which are not clicked.
-            li.remove() ;
-            saveTasks() ;
+            li.classList.add("del") ;
+            
+            // setTimeout( () => {
+            //     li.remove() ;
+            //     saveTasks() ;
+            //     li.classList.remove("del") ;
+            // } , 475 ) ; 
+
+            // Instead of Timeout() can directly call "transitionend" event 
+            li.addEventListener("transitionend", () => {
+                li.remove() ;
+                saveTasks();
+                li.classList.remove("del") ;
+            } ) ;
+            
         } ) ;
 
         todoList.appendChild( li ) ;

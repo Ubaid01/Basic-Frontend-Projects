@@ -85,6 +85,7 @@ li {
     align-items: center;
     position: relative ;
     /* justify-content: space-between; */
+    transition: transform 0.3s ease-in-out;
 }
 
 li::before {
@@ -110,6 +111,12 @@ li.completed span {
 
 li.completed::before {
     background-image: url("./imgs/checked.png");
+}
+
+li.del {
+    opacity: 0 ;
+    transform: translateX(200px) ; 
+    transition: opacity 0.35s ease-out, transform 0.4s ease-out ; /* Fade type animation so used Timeout() of just > 400ms time as 0.4s transform. */
 }
 
 li button {
