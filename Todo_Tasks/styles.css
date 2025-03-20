@@ -1,0 +1,132 @@
+body {
+    margin: 0px ;
+    padding: 0px ;
+    box-sizing: border-box ;
+    font-family: 'Poppins', sans-serif;
+
+    /* background: linear-gradient(90deg, rgba(36, 36, 242, 0.947), purple); */
+    background: linear-gradient(135deg, #153677, #4e085f);
+    width: 100% ;
+    min-height: 100vh ; /* Min to apply with clear aspect on all devices. */
+    padding: 10px;
+}
+
+.container {
+    width: 100% ;
+    background-color: #fff;
+    max-width: 350px ;
+    margin: 100px auto 20px ;
+    padding: 40px 30px 70px ; /* margin: auto helped to center so no FLEX. */
+    border-radius: 20px ;
+}
+
+.container h2 {
+    color: darkblue ;
+    text-align: center;
+    margin-bottom: 20px ;
+}
+
+.container img {
+    margin-left: 10px ;
+    width: 30px ;
+}
+
+.input-container {
+    display: flex ;
+    justify-content: space-between;
+    margin-top: 20px ;
+    width: 100% ;
+    position: relative;
+}
+
+.input-container input {
+    background-color: rgb(245, 240, 238);
+    border: none ;
+    padding: 12px 60px 12px 20px ; /* Apply 10px from left so placeholder doesn't go in mid at 60px. */
+    width: 75% ;
+    border-radius: 20px ;
+    outline: none ;
+    /* text-align: left ; */
+    /* overflow: hidden ; */
+}
+
+.input-container button {
+    color: white ;
+    background-color: rgba(231, 10, 10, 0.804) ;
+    z-index: 1 ;
+    width: 25% ;
+    border: none ;
+    margin-left: -30px ;
+    padding: 10px 25px ;
+    border-radius: 20px ;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out ;
+}
+
+button:hover {
+    background-color: #3700b3;
+}
+
+ul {
+    list-style-type: none ;
+    /* padding: 0px ; Was shifted to right. BUT fixed as space-between was added b/w each time. */
+    user-select: none; /* Prevents users from selecting text in the list. */
+    cursor: pointer ;
+}
+
+li {
+    /* background-color: #ede6e6; */
+    font-size: 16px ;
+    color: black;
+    padding: 6px 12px ;
+    margin-bottom: 5px ;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    position: relative ;
+    /* justify-content: space-between; */
+}
+
+li::before {
+    content: '' ; 
+    position: absolute ;
+    height: 24px ;
+    width: 24px;
+    left: -13% ;
+    top: 2px ;
+    background-image: url("./imgs/unchecked.png");
+    background-size: cover ; /* Keep Aspect Ratio */
+    /* background-position: center; Center the image in the box */
+}
+
+li.completed {
+    text-decoration: line-through;
+    color: #999;
+}
+
+li.completed span {
+    opacity: 0.7 ; /* Used span SO that opacity NOT applies on checked png.*/
+}
+
+li.completed::before {
+    background-image: url("./imgs/checked.png");
+}
+
+li button {
+    background-color: #d32f2f;
+    border: none;
+    padding: 5px;
+    position: absolute;
+    right: 0px ;
+    top: 5px ;
+    /* margin-top: 5px ; Initially top() was not working as I applied relative of "ul" NOT "li" parent. */
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease , transform 0.3s ease;
+}
+
+li button:hover {
+    background-color: #b71c1c ;
+    transform: scale( 1.05 ) ;
+}

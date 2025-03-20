@@ -1,0 +1,2 @@
+# To-Do List App
+This is a simple **To-Do List** web application built for my understanding. The app allows you to add, mark as completed, and delete tasks, with the tasks being saved in `localStorage` so they persist even after the page is reloaded.
