@@ -1,0 +1,2 @@
+# Weather App
+The **Weather App** is a simple web application that allows users to check the weather of any city. It fetches real-time weather data from the `OpenWeatherMap` API and displays essential details like temperature, humidity, wind speed, and weather description. The app also provides weather icons and handles errors if the city is not found. It's a responsive app that works well on both desktop and mobile devices.
