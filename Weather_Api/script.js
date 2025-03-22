@@ -74,6 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
         descriptionDisplay.textContent = `Weather: ` + capitalizeFirstLetter( weather[0].description ) ;
 
         const weatherIcon = document.querySelector(".weather-icon"); // Set icon based on weather.
+        weather[0].main = weather[0].main.toLowerCase() ; // It worked without lowerCasing on local() BUT NOT on git.
         // console.log( weather[0].main ) ;
         
         weatherIcon.src = `./imgs/${weather[0].main}.png` ;
