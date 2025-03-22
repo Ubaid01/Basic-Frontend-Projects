@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Weather App</h2>
+        <div class="input-container">
+            <input type="text" id="city-input" placeholder="Enter city name">
+            <button id="get-weather-btn"> <img src="./imgs/search.png" alt="Search Button"></button>
+        </div>
+
+        <div id="weather-info" class="hidden">
+            <img class="weather-icon" src="./imgs/clear.png" alt="Weather Icon">
+            <h1 id="temp"></h1>
+            <h2 id="city"></h2>
+            <div class="details">
+                <div class="humidity">
+                    <img src="./imgs/humidity.png" alt="Humidity Icon">
+                    <div>
+                        <p class="humidity-percent"></p>
+                        <p style="margin-top: -10px;">Humidity</p>
+                    </div>
+                </div>
+
+                <div class="wind">
+                    <img src="./imgs/wind.png" alt="Wind Icon">
+                    <div>
+                        <p class="wind-speed"></p>
+                        <p style="margin-top: -10px;">Wind Speed</p>
+                    </div>
+                </div>
+            </div>
+            <p id="description"></p>
+        </div>
+        <p id="error-msg" class="hidden">City not found. Please try again.</p>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
