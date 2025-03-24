@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecommerce Cart App</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="cart">
+            <div class="title">
+                <h2>Shopping Cart</h2>
+                <select name="Products" id="product-list">
+                </select>
+                <button id="check-selection">Check Selected Item</button>
+            </div>
+
+            <div class="cart-items">
+                <p id="empty-cart">Your cart is empty.</p>
+                <!-- 
+                    For Guide
+                <div class="separation"></div>
+                
+                <div class="item 1">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSGSOefpWHZmbjDEjB2SnVirWQRwKz9utt4Ag&s">
+                    <div class="text">
+                        <p class="category">Shirt</p>
+                        <p>Cotton T-Shirt</p>
+                    </div>
+                    
+                    <div>
+                        <a href="#">-</a><span class="qty">1</span><a href="#">+</a>
+                    </div>
+                    <div class="price">&euro; 44.00 <button class="close">&#10005;</button></div>
+                </div> -->
+            </div>
+                
+            <div class="back-to-shop"><a href="https://www.youtube.com/watch?v=xvFZjo5PgG0" target="_blank">&leftarrow;</a><span>Back to shop</span></div>
+        </div>
+
+        <div class="summary">  
+            <h2>Summary</h2>    
+            <div class="separation"></div> 
+
+            <div class="pre-receipt">
+                <p>ITEMS-NILL</p>
+                <p>&euro;0.00</p>
+            </div>
+
+            <div class="details">
+                <p>SHIPPING</p>
+                <select name="Shipping" id="shipping">
+                    <option value="std">Standard-Delivery- &euro;5.00</option> <!-- Can add attribute like data-price=5.00 ; for more ease. -->
+                    <option value="exp">Express-Delivery- &euro;12.00</option>
+                    <option value="ug">Urgent-Delivery- &euro;20.00</option>
+                </select>
+
+                <div class="input-container">
+                    <p>GIVE COUPON</p>
+                    <input type="text" name="coupon" id="coupon" placeholder="Enter your code">
+                    <button id="arrow-btn" type="button">&#8594;</button>
+                </div>
+            </div>
+
+            <div class="separation"></div>
+            <div class="pre-receipt">
+                <p>TOTAL PRICE</p>
+                <p id="total-price">&euro;0.00</p>
+            </div>
+            <button type="submit" id="checkout-btn">CHECKOUT</button>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>

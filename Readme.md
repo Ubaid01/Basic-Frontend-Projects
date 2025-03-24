@@ -4,5 +4,6 @@ Welcome to my collection of basic **Frontend Projects**. This repository contain
 ### Projects
 1. **[To-Do List App](Todo_Tasks/Readme.md)**
 2. **[Weather App](Weather_Api/Readme.md)**
+3. **[ECommerce Cart App](Ecommerce_Cart/Readme.md)**
 
 Feel free to explore individual project folders for more details. Any feedback or suggestions for improvements would be greatly appreciated.
