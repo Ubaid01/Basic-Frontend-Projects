@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balance Tracker App</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Balance Tracker App</h1>
+        <header>
+            <img src="https://i.ibb.co/jfScDTC/budget.png" alt="budget">
+
+            <div class="balance-container">
+                <h2>Current Balance</h2>
+                <h2 id="total-balance">$0.00</h2>
+            </div>
+        </header>
+
+        <p class="instruction">+ve amount indicates income, -ve amount indicates expense.</p>
+
+        <!-- Used "tooltip hover"-->
+        <div class="income-state" title="+ve amount indicates income ; -ve for expense">
+            <div class="income-container">
+                <h3>Income</h3>
+                <h3 id="income">$0.00</h3>
+            </div>
+
+            <div class="exp-container">
+                <h3>Expense</h3>
+                <h3 id="exp">$0.00</h3>
+            </div>
+        </div>
+
+        <form action="" class="trans-form">
+            <input type="text" name="description" id="name" placeholder="Transaction Description" required> <!-- Used required to enforce field to be filled.-->
+            <input type="number" name="amount" id="amount" placeholder="Amount" title="+ve amount indicates income ; -ve for expense" step="0.01"> <!-- Manually allow decimal values using "step-tolerance". Also can give "min AND max values". min="-10000" max="10000"-->
+            <select name="category" id="category">
+                <option value="" disabled selected>Select any Category</option>
+                <option value="Home">Home</option>
+                <option value="Food">Food</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="Transport">Transport</option>
+                <option value="Others">Others</option>
+            </select>
+
+            <input type="date" name="exp-data" id="trans-date">
+            <button type="submit" id="add-trans">Add Transaction</button>
+        </form>
+
+        <div class="trans-table hidden">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Transaction Name</th>
+                        <th>Amount</th>
+                        <th>Type</th>
+                        <th>Category</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+
+                <tbody class="trans-list">
+                </tbody>
+            </table>
+
+            <div>
+                <!-- Since we are using label for "filter select" so provide its "id" to avoid Browser's small Open-Issue Error. -->
+                <label for="filter">Filter by Category: </label>
+                <select name="filter" id="filter">
+                    <!-- Change to camel-case here ; instead of doing by JS-function. -->
+                    <option value="">All</option>
+                    <option value="Home">Home</option>
+                    <option value="Food">Food</option>
+                    <option value="Entertainment">Entertainment</option>
+                    <option value="Transport">Transport</option>
+                    <option value="Others">Others</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>

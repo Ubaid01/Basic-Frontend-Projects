@@ -1,0 +1,284 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap");
+
+body {
+    font-family: "Noto Sans" , 'Poppins', 'sans-serif' ;
+    padding: 0px ;
+    margin: 0px ;
+    box-sizing: border-box ;
+    background-color: #b1cece;
+}
+
+.container {
+    min-height: 100vh ;
+    background-color: #c7c9da;
+    display: flex ;
+    flex-direction: column;
+    align-items: center ;
+    justify-content: center ;
+    margin: 0px auto ;
+    max-width: 95%;
+}
+
+h1 {
+    font-size: 1.5rem ;
+}
+
+h2 {
+    font-size: 1.25rem ;
+}
+
+header {
+    display: flex ;
+    align-items: center ;
+    justify-content: space-between ;
+    gap: 30px ;
+}
+
+header img {
+    width: 4rem;
+    width: 3.5rem ;
+    /* opacity: 0.75 ; */
+}
+
+.balance-container {
+    display: flex ;
+    flex-direction: column;
+    align-items: center;
+}
+
+#total-balance {
+    font-size: 1.75rem ;
+    margin-top: 1.25vh ;
+    letter-spacing: 1px;
+}
+
+.income-state {
+    background-color: #fff ;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px auto ;
+    border-radius: 8px;
+    padding: 0px 15px ;
+    max-height: 18vh ;
+}
+
+.income-state {
+    position: relative;
+    cursor: pointer;
+}
+
+.income-state:hover::after  {
+    content: attr(title);
+    position: absolute;
+    bottom: 0px ;
+    left: 0px;
+    background-color: #333;
+    color: white;
+    padding: 5px;
+    font-size: 0.85rem;
+    border-radius: 5px;
+    text-wrap: wrap;
+}
+
+h3 {
+    padding: 5px ;
+    margin: 20px ;
+    text-align: center ;
+}
+
+h2, h3 {
+    text-transform: uppercase ;
+}
+
+.instruction {
+    font-size: 0.85rem;
+    color: #555;
+    text-align: center;
+    text-wrap: pretty ; /* Better layout over speed than "wrap".*/
+    margin-top: 10px;
+}
+
+
+.income-container { /* OR do this by > div:first-of-type*/
+    padding-right: 20px;
+    border-right: 1.5px solid #1a1a1a ;
+}
+
+.exp-container {
+    padding-left: 20px;
+}
+
+#income {
+    color: green ;
+    letter-spacing: 0.5px;
+    margin-top: -18px ;
+}
+
+#exp {
+    color: #c0392b ;
+    letter-spacing: 0.5px ;
+    margin-top: -18px ;
+}
+
+.trans-form {
+    display: flex ;
+    align-items: center;
+    justify-content: space-around ;
+    gap: 15px;
+    padding: 15px ;
+    margin: 0px auto 20px ;
+}
+
+.trans-form input, .trans-form select, .trans-form button {
+    padding: min( 10px, 10% ) ;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none ;
+}
+
+input::placeholder {
+    text-align: center ;
+}
+
+.trans-form button {
+    background-color: #5c6bc0;
+    color: white;
+    cursor: pointer;
+    border: none;   
+    text-align: center ;
+    padding: 10px 20px ;
+}
+
+.trans-form button:hover {
+    background-color: #3f4a99;
+}
+
+.trans-table {
+    display: flex ;
+    flex-direction: column ;
+    align-items: center ;
+    margin-bottom: 20px ;
+    table-layout: auto ; /* To determine width of columns in a table. */
+}
+
+/* Note:  This will merge the border into single if overlapped. But you would need to apply this on all table, th, td. */
+table , th , td {
+    border: 1px solid black;
+    border-spacing: 40px ;
+    border-collapse: collapse ;
+}
+
+.trans-table th, .trans-table td {
+    padding: 10px ;
+    text-align: center ;
+}
+
+.trans-table th {
+    background-color: #f8f8f8 ;
+}
+
+/* Now don't need this also. 
+.trans-table th:last-child, .trans-table td:last-child {
+    border-right: none;
+} */
+
+.trans-table label {
+    font-size: 1rem;
+    margin-right: 1em ;
+}
+
+.trans-table .edit, .trans-table .delete {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.85rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-align: center;
+}
+
+.trans-table .edit {
+    background-color: #4CAF50 ;
+    color: white;
+}
+
+.trans-table .edit:hover {
+    background-color: #45a049 ;
+}
+
+.trans-table .delete {
+    background-color: #f44336 ;
+    color: white;
+}
+
+.trans-table .delete:hover {
+    background-color: #e53935 ;
+}
+
+.trans-table td button {
+    margin: 0 5px;
+}
+
+#filter {
+    font-size: 0.75rem ;
+    padding: 7px ;
+    text-align: center ;
+    border-radius: 5px ;
+    border: 1px solid #ddd ;
+    outline: none ;
+    margin-top: calc( 3vh + 20px ) ;
+}
+
+.hidden {
+    display: none ;
+}
+
+@media (max-width: 950px) {
+    .income-state {
+        width: 50% ;
+        max-height: 10vh;
+        overflow: hidden; /* To hide border overflow.*/
+    }
+
+    .income-container {
+        margin-top: -20px;
+        width: 50% ;
+        font-size: 0.75rem;
+    }
+
+    .exp-container {
+        width: 50% ;
+        font-size: 0.75rem;
+        margin: -20px 0px 0px -20px ;
+    }
+
+    .trans-form {
+        display: grid ;
+        grid-template-columns: repeat( auto-fit , minmax( 200px , 1fr ) ) ;
+        /* flex-direction: column ;
+        align-items: stretch ;  Make all of equal widths. */
+    }
+
+    .trans-table {
+        width: 100% ;
+        overflow-x: auto ;  /* Enable horizontal scroll */
+        -webkit-overflow-scrolling: touch ;  /* Smooth scrolling for iOS devices */
+        table-layout: fixed ;
+        align-items: flex-start ; /* To avoid shifting to left side so scroll starts from flex-start.*/
+    }
+
+    .trans-table th, .trans-table td {
+        padding: 8px;
+        font-size: 0.85rem;
+        word-wrap: break-word;  /* Wrap text within table cells */
+        white-space: nowrap ; /* Prevent text wrapping in table headers and cells */
+    }
+
+    /* If the table overflows horizontally, allow scroll */
+    .trans-table table {
+        width: 100%;
+        min-width: 600px ;
+        min-height: 80px;
+    }
+}
