@@ -1,0 +1,2 @@
+# Balance Tracker App with Local Storage
+Balance Tracker is a simple web application that helps you manage your personal finances by tracking income and expenses. The app allows you to add, edit, delete, and filter financial transactions while providing a real-time view of your current balance with local persistence.

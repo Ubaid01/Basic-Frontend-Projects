@@ -84,8 +84,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const filteredTrans = filterType === "" ? transactions : transactions.filter( (trans) => trans.category === filterType ) ;
         transList.innerHTML = "" ; // Rerender each time.
 
-        filteredTrans.forEach( (trans) => {
+        if( filteredTrans.length > 0 )
             document.querySelector(".trans-table").classList.remove("hidden") ;
+
+        filteredTrans.forEach( (trans) => {
             const { name , amount , category , date } = trans ;
             const transHTML = `
                 <tr>
