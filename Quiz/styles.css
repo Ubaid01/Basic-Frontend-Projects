@@ -1,0 +1,343 @@
+body {
+    margin: 0px ;
+    padding: 0px ;
+    background-image: linear-gradient(45deg, #4158d0 2%, #c850c0 46%, #ffcc70 100%) ;
+    font-family: 'Open Sans', sans-serif;
+    user-select: none ;
+    background-attachment: fixed ;
+}
+
+.container {
+    display: flex ;
+    flex-direction: column ;
+    justify-content: center ;
+    align-items: center ;
+    min-height: 100vh ;
+}
+
+.registration-card, .quiz-card {
+    display: flex ;
+    flex-direction: column ;
+    justify-content: center ;
+    align-items: center ;
+    min-width: 60vh ;
+    max-width: 65vh ;
+    background-color: rgba(159, 225, 212, 0.278) ;
+    opacity: 0.8 ;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px ;
+    backdrop-filter: blur(0.245rem) ;
+    border-radius: 16px 50px ;
+    flex-wrap: wrap;
+    padding: 20px ;
+}
+
+header {
+    width: 100% ;
+    display: flex ;
+    justify-content: space-between ;
+    align-items: center ;
+    margin-top: -0.85rem ;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2) ;
+}
+
+header p {
+    font-size: 1.15rem ;
+    color: white ; 
+    background-color: rgb(125, 99, 223) ;
+    padding: 7px 10px ;
+    border-radius: 8px ;
+    border: 1px solid black ;
+}
+
+header span {
+    background-color: limegreen ;
+    color: black ;
+    border-radius: 50% ;
+    padding: 3px 6px ;
+    margin-left: 5px;
+    font-size: 0.85em ;
+}
+
+.registration-card input {
+    padding: 10px;
+    margin: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none ;
+}
+
+.registration-card button {
+    background-color: #2e4ca6;
+    color: white;
+    padding: 10px 20px;
+    border: none ;
+    border-radius: 5px;
+    cursor: pointer ;
+    margin-top: 10px ;
+}
+
+.registration-card button:hover {
+    background-color: #1d3786 ;
+}
+
+.stats-card {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9 ;
+    padding: 10px 20px ;
+    border-radius: 10px 30px ;
+    max-height: 150px ;
+    margin: 35px auto ;
+    text-align: center ;
+    background-color: #94e3cd59 ;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px ;
+    backdrop-filter: blur(0.245rem) ;
+    -webkit-backdrop-filter: blur(0.245rem) ;
+}
+
+.stats-card h3 {
+    font-size: 1.25em ;
+    margin-bottom: 10px ;
+    color: #333 ;
+}
+
+.stats-card p {
+    margin: 10px 0px ;
+    color: #555 ;
+}
+
+.stats-card p span {
+    font-weight: bold;
+    color: #1d8a21 ;
+}
+
+.stats-card:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 18px 28px, rgba(0, 0, 0, 0.22) 0px 15px 15px ;
+    transform: scale(1.05) ;
+    transition: all 0.3s ease-in-out ;
+}
+
+div.answer-container {
+    display: flex ;
+    flex-direction: column ;
+    align-items: center ;
+    justify-content: center ;
+    margin: 15px 0px ;
+}
+
+div #question {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif ;
+    font-size: clamp( 1rem , 19px , 1.7rem ) ;
+    margin: 0px 10px 25px ;
+    font-weight: bold ;
+    letter-spacing: 0.5px ;
+}
+
+div.choices {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between ;
+}
+
+div .ans {
+    min-width: 55vh ;
+    background-color: #fff ;
+    padding: 5px 10px;
+    border-radius: 5px ;
+    text-align: center ;
+    cursor: pointer ;
+}
+
+div .ans:hover {
+    background-color: rgb(233, 216, 216) ;
+}
+
+.choices .correct-ans {
+    background-color: lime ;
+}
+
+/* hovering is helping us to persist bgc ELSE since both '.ans' has hover so that will override without hovering property. */
+.choices .correct-ans:hover {
+    background-color: rgb(0, 160, 0) ;
+}
+
+.choices .wrong-ans {
+    background-color:  rgb(248, 80, 80) ;
+}
+
+.choices .wrong-ans:hover {
+    background-color: rgb(244, 48, 48) ;
+}
+
+footer {
+    display: flex ;
+    width: 100% ;
+    justify-content: space-between ; 
+    align-items: center ;
+    padding: 5px ;
+}
+
+#correct , #total {
+    background-color: rgba(0, 0, 0, 0.15) ;
+    padding: 2px 6px ;
+    border-radius: 50% ;
+}
+
+footer button {
+    color: #fff;
+    background-color: #ff4824;
+    padding: 8px 22px ;
+    border-radius: 5px ;
+    border: none ;
+    opacity: 0.85 ;
+    cursor: pointer ;
+    transform: scale(0) ;
+    transition: transform 0.3s ease ; 
+}
+
+footer button:hover {
+    background-color: #ff2a00 ;
+}
+
+.pop-anim {
+    transform: scale(1) ;
+}
+
+.result-box {
+    width: clamp( 300px, 450px, 50vh ) ;
+    height: clamp( 325px, 400px, 50vh ) ;
+    background-color: #eee ;
+    display: flex ;
+    flex-direction: column ;
+    justify-content: space-around ;
+    align-items: center ;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset ;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.result-box img {
+    height: 50% ;
+}
+
+.result-box .msg {
+    text-transform: capitalize ; 
+    font-size: clamp( 0.8rem , 1rem , 1.5rem ) ;
+    text-wrap: wrap ;
+    word-break: break-word ;
+    overflow-wrap: break-word ;
+    background: linear-gradient(135deg, #ffa600 , #c850c0);
+    -webkit-background-clip: text ; /* Clip text to background-also. Then below line will color only that text. */
+    -webkit-text-fill-color: transparent ;
+    text-align: center ;
+}
+
+.result-box a {
+    color: #fff ;
+    background-color: rgb(0, 155, 211) ;
+    text-decoration: none ;
+    padding: 10px 20px ;
+    border-radius: 5px ;
+}
+
+.result-box a:hover {
+    transform: scale(1.05) ;
+    background-color: rgb(0, 128, 187) ;
+}
+
+@media ( max-width: 550px ) {
+    .registration-card, .quiz-card, .result-box {
+        min-width: 20vw ;
+        max-width: 50vw ;
+        width: 240px ;
+        padding-right: 30px ;
+    }
+
+    header {
+        width: 75% ;
+        margin-right: 20px ;
+        flex-direction: column;
+    }
+
+    header h2 {
+        font-size: 3.4vh ; 
+    }
+
+    header p {
+        font-size: 2.5vh ;
+        padding: 5px 10px ;
+        text-align: center ;
+    }
+
+    .registration-card h2 {
+        font-size: 3.4vh ;
+    }
+
+    div #question {
+        font-size: 1.2rem ;
+        margin-bottom: 15px ;
+    }
+
+    div .ans {
+        min-width: 50px ;
+        padding: 5px 8vw ;
+        font-size: 2.75vh ;
+        margin-right: 10px ;
+    }
+
+    .result-box {
+        width: 90vw ;
+        height: auto ;
+        padding: 10px ;
+    }
+
+    .result-box img {
+        height: auto ;
+        width: 40% ;
+    }
+
+    .msg {
+        overflow-x: scroll ;
+        overflow-y: hidden; 
+    }
+
+    .result-box a {
+        width: 70% ;
+        padding: 10px ;
+        text-align: center ;
+    }
+
+    .registration-card input {
+        width: 80% ;
+        padding: 1.2vh 2vw ;
+    }
+
+    .stats-card {
+        max-width: 50vw ;
+        overflow: scroll ;
+    }
+
+    /* For overflow-scrollbar.*/
+    ::-webkit-scrollbar {
+        width: 8px ;
+        height: 8px ;
+    }
+  
+    ::-webkit-scrollbar-track {
+        background: transparent ;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background-color: darkgrey ;
+        border-radius: 10px ;
+    }
+  
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: grey;
+    }
+  
+}
+
+.hidden {
+    display: none ;
+}

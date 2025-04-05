@@ -1,0 +1,2 @@
+# Quiz App
+This is a simple HTML, CSS and JS interactive quiz application where users can take a quiz, check their performance, and even see their best scores. The app uses the Open Trivia Database [Website-Link](https://opentdb.com/) API to fetch questions and provides real-time feedback to users.

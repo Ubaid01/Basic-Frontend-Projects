@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="registration-card">
+            <h2>Welcome to the Quiz</h2>
+            <input type="text" id="username" placeholder="Enter your name" />
+            <button id="start-quiz">Start Quiz</button>
+        </div>
+
+        <div class="stats-card">
+            <h3>Your Best Score</h3>
+            <p>Name: <span id="name">Nill</span></p>
+            <p>Score: <span id="score">0</span></p>
+            <p>Time: <span id="time">0s</span></p>
+        </div>
+
+        <div class="quiz-card hidden">
+            <header>
+                <h2>Quiz</h2>
+                <p>Time: <span id="time-status"></span></p>
+            </header>
+
+            <div class="answer-container">
+                <p id="question"></p>
+                <div class="choices">
+                </div>
+            </div>
+
+            <footer>
+                <div class="out-of"><span id="correct"></span> of <span id="total"></span> Questions</div>
+                <button id="next-question-btn">Next</button>
+            </footer>
+        </div>
+
+        <div class="result-box hidden">
+            <img class="cup-image" src="./imgs/bronze.png">
+            <div class="msg">
+                <p class="msg-txt"></p>
+                <p> You got
+                    <span class="correct-result"></span>
+                    out of
+                    <span class="total-result"></span>
+                </p>
+            </div>
+            <a href="#">Restart Quiz</a>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
