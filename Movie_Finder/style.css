@@ -1,0 +1,362 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%); */
+    /* background-attachment: fixed; */
+    background-color: #0f172a;
+    color: #e2e8f0;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.bg-particles {
+    position: fixed ;
+    top: 0 ;
+    left: 0 ;
+    /* Apply whole window height and width to spread overall. */
+    width: 100% ; 
+    height: 100% ;
+    z-index: -1 ; /* Move particles to background. */
+}
+
+.particle {
+    position: absolute ;
+    width: 4px ;
+    height: 4px ;
+    background-color: rgba(147, 197, 253, 0.3)  ;
+    border-radius: 50% ;
+    animation: float 6s ease-in-out infinite ;
+}
+
+@keyframes float {
+    0%, 100% { 
+        transform: translateY(0px) rotate(0deg) ; 
+        opacity: 0.3 ; 
+    }
+    50% { 
+        transform: translateY(-20px) rotate(180deg) ; 
+        opacity: 0.8 ; 
+    }
+}
+
+
+.container {
+    min-height: 100vh ;
+    display: flex ;
+    flex-direction: column ;
+    align-items: center ;
+    padding: 2rem 1rem ;
+    position: relative ;
+}
+
+header {
+    text-align: center ;
+    margin-bottom: 2rem ;
+    transition: fadeInUp 1s ease-out ;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0 ;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px) ;
+    }
+}
+
+h1 {
+    font-size: 2.75rem ;
+    margin-bottom: 1rem ;
+    background: linear-gradient(135deg, #f1f5f9, #93c5fd, #60a5fa);
+    -webkit-text-fill-color: transparent;
+    /* Clip both so that fill cover doesn't cover background with text. */
+    background-clip: text;
+    -webkit-background-clip: text;
+    font-weight: 800 ;
+    letter-spacing: -1.5px ;
+}
+
+header p {
+    color: #94a3b8 ;
+    font-size: 1.25rem ;
+    opacity: 0.9 ;
+}
+
+/* Made another search container with input one so that input extends to whole's width and for animation. */
+.search-container {
+    width: 100% ; 
+    max-width: 600px;
+    margin-bottom: 3rem;
+    animation: fadeInUp 1s ease-out 0.2s both ;
+}
+
+.input-container {
+    position: relative;
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-radius: 20px;
+    padding: 0.75rem;
+    display: flex ;
+    align-items: center ;
+    /* justify-content: center ; */
+    gap: 0.75rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.input-container:focus-within {
+    border-color: rgba(59, 130, 246, 0.5) ;
+    box-shadow: 0 8px 32px rgba(59, 130, 246, 0.2) ;
+    transform: translateY(-2px);
+}
+
+#search-input {
+    flex: 1 ; /* To cover the whole width except of button. */
+    padding: 0.75rem 1.25rem ; 
+    border: none ;
+    outline: none ;
+    border-radius: 12px ;
+    font-size: 1rem ;
+    background: rgba(51, 65, 85, 0.8) ;
+    color: #f1f5f9;
+    transition: all 0.3s ease;
+}
+
+#search-input::placeholder {
+    color: #8c9aad;
+}
+
+#search-input:focus {
+    border: 1.5px solid #94a9c9 ;
+}
+
+#search-btn {
+    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease ;
+    font-size: 1rem ;
+    position: relative ;
+    overflow: hidden ; /* To hide the flash for hovering. */
+}
+
+#search-btn::before {
+    content: '' ;
+    position: absolute ;
+    top: 0 ;
+    left: -100% ;
+    width: 100% ;
+    height: 100% ;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent) ;
+    transition: left 0.5s ;
+}
+
+/* Applies the hover on before pseudo element. NOT write 1st pseudo then hover as its wrong.
+    button::before:hover
+*/
+#search-btn:hover::before {
+    left: 100% ;
+}
+
+#search-btn:hover {
+    transform: translateY(-2px) ;
+    box-shadow: 0 10px 25px rgba(59, 130, 246, 0.4) ;
+}
+
+#movie-results {
+    display: grid ;
+    /* auto-fit to only adjust ; but fill to spread out */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr) ) ;
+    grid-template-rows: auto ;
+    gap: 2rem ;
+    margin-top: 5rem ;
+    width: 100% ; /* To make responsive on smaller devices also. */
+    /* As width was not applied to container so grid columns were not being done. */
+    max-width: 1200px ; 
+}
+
+.movie-card {
+    text-align: center ;
+    background: rgba(30, 41, 59, 0.6);
+    /* backdrop-filter: blur(10px); */
+    border: 1px solid rgba(148, 163, 184, 0.1) ;
+    border-radius: 15px ;
+    overflow: hidden ; /* To hide animations going out of card-bounds. */
+    cursor: pointer ;
+    position: relative ;
+    animation: fadeInScale 0.85s ease-in-out forwards ;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.movie-card:hover {
+    transform: translateY(-10px) scale(1.5);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    border-color: rgba(59, 130, 246, 0.35);
+}
+
+.movie-card img {
+    width: 100% ;
+    height: 65% ;
+    object-fit: cover ;
+    transition: transform 0.4s ease ;
+}
+
+.movie-card:hover img {
+    transform: scale(1.1) ;
+}
+
+.movie-rating {
+    position: absolute;
+    top: 1rem ;
+    right: 1rem ;
+    background: rgba(0, 0, 0, 0.8) ;
+    color: #fbbf24;
+    padding: 0.5rem 0.75rem ;
+    border-radius: 20px ;
+    font-size: 0.875rem ;
+    font-weight: 600 ;
+    /* align-items: center ; */
+}
+
+.movie-info {
+    padding: 1.25rem ;
+    /* margin-top: -1.5rem ;  As border-box was not applied OVERALL only on body so was causing un-alignment */
+}
+
+.movie-info h3 {
+    font-size: 1.5rem ;
+    margin-bottom: 0.5rem ;
+    color: #f1f5f9 ;
+}
+
+.movie-info p {
+    color: #94a3b8;
+    font-size: 0.9rem ;
+    margin-bottom: 0.9rem ;
+}
+
+.movie-genre {
+    display: flex ;
+    flex-wrap: wrap ;
+    justify-content: center ;
+    gap: 0.5rem ;
+    margin-bottom: 1rem ;
+}
+
+.movie-plot {
+    color: #cbd5e1 ;
+    font-size: 0.875rem ;
+    line-height: 1.5 ;
+
+    /* Forces text to align vertical and max 3-lines truncating others while overflow is used to hide. */
+    display: -webkit-box;
+    -webkit-line-clamp: 3; 
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.movie-genre span {
+    background-color: rgba(59, 130, 246, 0.2) ;
+    color: #93c5fd ;
+    padding: 0.25rem 0.75rem ;
+    border-radius: 12px ;
+    font-size: 0.75rem ;
+    font-weight: 500 ;
+}
+
+.loading {
+    grid-column: 1 / -1 ; /* Cover whole grid i.e. start to end. */
+    text-align: center;
+    padding: 4rem 2rem;
+    color: #94a3b8;
+}
+
+.loading-spinner {
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(59, 130, 246, 0.3);
+    border-top: 3px solid #3b82f6;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.error-msg {
+    grid-column: 1 / -1;
+    background-color: rgba(239, 68, 68, 0.13) ;
+    border: 1px solid rgba(239, 68, 68, 0.3) ;
+    color: #fca5a5;
+    padding: 2rem;
+    border-radius: 20px;
+    text-align: center;
+    font-weight: 600;
+    backdrop-filter: blur(10px); /* Avoid particles in background. */
+}
+
+.no-results-icon {
+    font-size: 4rem ;
+    margin-bottom: 1rem ;
+    opacity: 0.5 ;
+}
+
+.hidden {
+    display: none ; /* OR can use opacity = 0. */
+}
+
+@media ( max-width: 650px ) {
+    .search-container {
+        width: 300px ;
+    }
+
+    .input-container {
+        flex-direction: column ;
+        align-items: center ;
+        gap: 1.5rem ;
+    }
+
+    #search-input {
+        padding: 0.6rem 1rem;
+    }
+
+    #search-btn {
+        padding: 0.75rem ;
+    }
+
+    #movie-results {
+        grid-template-columns: repeat(auto-fill, minmax( 220px, 1fr ) ) ;
+        gap: 1rem ;
+        justify-items: center ; /* Center grid items horizontally. */
+    }
+
+    .movie-card {
+        width: 85% ;
+    }
+    
+    .movie-info {
+        margin-top: 1rem ;
+    }
+}

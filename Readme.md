@@ -7,5 +7,6 @@ Welcome to my collection of basic **Frontend Projects**. This repository contain
 3. **[ECommerce Cart App](Ecommerce_Cart/Readme.md)**
 4. **[Balance Tracker App](Expense_Tracker/Readme.md)**
 5. **[Quiz App](Quiz/Readme.md)**
+6. **[Movie Search App](Movie_Finder/Readme.md)**
 
 Feel free to explore individual project folders for more details. Any feedback or suggestions for improvements would be greatly appreciated.
