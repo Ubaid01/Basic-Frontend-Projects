@@ -262,17 +262,30 @@ header p {
     margin-bottom: 1rem ;
 }
 
+
 .movie-plot {
-    color: #cbd5e1 ;
-    font-size: 0.875rem ;
-    line-height: 1.5 ;
+    color: #cbd5e1;
+    font-size: 0.875rem;
+    line-height: 1.5;
 
     /* Forces text to align vertical and max 3-lines truncating others while overflow is used to hide. */
-    display: -webkit-box;
+    /* display: -webkit-box;
     -webkit-line-clamp: 3; 
     -webkit-box-orient: vertical;
-    overflow: hidden;
+    overflow: hidden; */
+
+    max-height: 4.5rem ;
+    overflow-y: auto ; /* scroll */
+    scrollbar-width: none ; /* Disable scrollbar icon. */
+    -ms-overflow-style: none ;
+
+    /* For fade-out effect at bottom. */
+    mask-image: linear-gradient( to bottom, black 80%, transparent 100%) ;
 }
+/* 
+.movie-plot::-webkit-scrollbar {
+    display: none ;
+} */
 
 .movie-genre span {
     background-color: rgba(59, 130, 246, 0.2) ;
